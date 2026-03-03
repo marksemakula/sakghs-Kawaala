@@ -49,7 +49,7 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <div className="flex items-center space-x-3 mb-6">
-                <img src="/logo.png" alt="GES Logo" className="h-16 w-auto" />
+                <img src="/images/GES.png" alt="GES Logo" className="h-16 w-auto" />
                 <div>
                   <h3 className="text-xl font-bold text-gray-900">Gombe Education Service</h3>
                   <p className="text-ges-gold text-sm font-semibold">EXCELLENCE SINCE 1995</p>

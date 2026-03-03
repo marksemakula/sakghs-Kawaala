@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { LuMapPin, LuPhone, LuMail, LuUsers, LuAward, LuBookOpen, LuCalendar, LuArrowRight, LuExternalLink, LuStar, LuTarget } from 'react-icons/lu';
-import SAKHeader from '../../components/layout/SAKHeader';
-import SAKFooter from '../../components/layout/SAKFooter';
+import SAKHeader from '../components/layout/SAKHeader';
+import SAKFooter from '../components/layout/SAKFooter';
 
 const SAKGHSKawaala = () => {
   const brandColors = {
