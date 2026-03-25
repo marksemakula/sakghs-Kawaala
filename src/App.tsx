@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
-const SAKGHSKawaala = lazy(() => import('./pages/SAKGHSKawaala'));
+const SAKGHSKawaala     = lazy(() => import('./pages/SAKGHSKawaala'));
+const PrincipalsMessage = lazy(() => import('./pages/PrincipalsMessage'));
 
 const LoadingFallback: React.FC = () => (
   <div className="min-h-screen flex items-center justify-center bg-[#800E13]">
@@ -28,6 +29,7 @@ function App() {
       <ScrollToTop />
       <Suspense fallback={<LoadingFallback />}>
         <Routes>
+          <Route path="/principals-message" element={<PrincipalsMessage />} />
           <Route path="/*" element={<SAKGHSKawaala />} />
         </Routes>
       </Suspense>
