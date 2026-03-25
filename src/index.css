@@ -1,22 +1,28 @@
 /* Import Ubuntu font */
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Reset and base styles */
-* {
+/* ─── Base reset ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* offset for sticky header */
 }
 
 body {
-  font-family: 'Ubuntu', system-ui, sans-serif;
+  font-family: 'Ubuntu', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
 }
 
 /* Hide preloader from old theme templates */
@@ -36,7 +42,7 @@ div[class*="preloader"] {
   min-height: 100vh;
 }
 
-/* GES Design Tokens */
+/* ─── GES / SAK Design Tokens ─── */
 :root {
   --ges-navy: #0A2342;
   --ges-gold: #C5A572;
@@ -44,40 +50,70 @@ div[class*="preloader"] {
   --ges-teal: #2A9D8F;
   --ges-burgundy: #8A1538;
   --ges-slate: #6C757D;
+
+  /* SAK brand */
+  --sak-primary: #FFD700;
+  --sak-secondary: #800E13;
+
+  /* Transitions */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Corporate Typography Scale */
-h1 { 
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+/* ─── Typography scale ─── */
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
-h2 { 
-  font-size: clamp(2rem, 4vw, 2.5rem);
+h3 {
+  font-size: clamp(1.35rem, 3vw, 1.875rem);
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
-h3 { 
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 500;
+h4 {
+  font-size: clamp(1.1rem, 2.5vw, 1.375rem);
+  font-weight: 600;
   line-height: 1.4;
 }
 
-h4 { 
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-  font-weight: 500;
-  line-height: 1.4;
+/* ─── View Transitions ─── */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    animation: 280ms ease both fade-out;
+  }
+  ::view-transition-new(root) {
+    animation: 280ms ease both fade-in;
+  }
+  @keyframes fade-out {
+    from { opacity: 1; transform: scale(1); }
+    to   { opacity: 0; transform: scale(0.98); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; transform: scale(1.02); }
+    to   { opacity: 1; transform: scale(1); }
+  }
 }
 
-/* Modern card hover effects */
+/* ─── Focus ring (accessibility) ─── */
+:focus-visible {
+  outline: 2px solid var(--sak-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── Card & interaction utilities ─── */
 .ges-card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.ges-card-hover:hover {
-  transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(10, 35, 66, 0.1);
 }
 
