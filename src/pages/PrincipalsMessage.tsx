@@ -103,7 +103,7 @@ const PageHeader: React.FC = () => {
               </div>
               <div className={`text-xs font-semibold tracking-wider transition-colors ${scrolled ? 'text-[#800E13]' : 'text-[#FFD700]'}`}
                 style={{ color: scrolled ? SECONDARY : PRIMARY }}>
-                EXCELLENCE &amp; CHARACTER · SINCE 1995
+                EXCELLENCE &amp; CHARACTER · SINCE 2016
               </div>
             </div>
           </a>
@@ -362,8 +362,9 @@ const PrincipalsMessage: React.FC = () => {
               <img src="/images/Gombe High logo.png" alt="SAKGHS" className="h-16 w-auto mb-3 grayscale brightness-150" loading="lazy" />
               <h3 className="text-base font-bold text-white mb-2">St. Andrew Kaggwa Gombe High School</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Providing quality advanced-level education since 1995. A school that puts your worries to
-                rest and sets your child on the path to a truly excellent future.
+                Established in 2016, St. Andrew Kaggwa Gombe High School Kawaala is a mixed day and boarding
+                secondary school committed to academic excellence, character formation, and holistic
+                development, guided by the motto: "Light the Lamp of Wisdom."
               </p>
               <div className="flex items-center gap-3 mt-4">
                 {([FaFacebook, FaXTwitter, FaInstagram, FaLinkedin, FaWhatsapp] as React.ElementType[]).map((Icon, i) => (

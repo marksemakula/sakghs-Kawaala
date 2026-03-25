@@ -211,7 +211,7 @@ const InlineHeader: React.FC<{ onApply: () => void }> = ({ onApply }) => {
                 St. Andrew Kaggwa Gombe HS
               </div>
               <div className={`text-xs font-semibold tracking-wider transition-colors ${scrolled ? 'text-[#800E13]' : 'text-[#FFD700]'}`}>
-                EXCELLENCE &amp; CHARACTER · SINCE 1995
+                EXCELLENCE &amp; CHARACTER · SINCE 2016
               </div>
             </div>
           </a>
@@ -423,7 +423,7 @@ const SAKGHSKawaala: React.FC = () => {
               <img src="/images/Gombe High logo.png" alt="SAKGHS Logo" className="h-56 md:h-72 w-auto drop-shadow-2xl" />
               <div className="flex items-center space-x-2">
                 <LuGraduationCap className="w-7 h-7 text-[#FFD700]" />
-                <span className="text-[#FFD700] font-bold tracking-wider uppercase text-sm">Excellence &amp; Character · Since 1995</span>
+                <span className="text-[#FFD700] font-bold tracking-wider uppercase text-sm">Excellence &amp; Character · Since 2016</span>
               </div>
             </motion.div>
           </div>
@@ -529,10 +529,10 @@ const SAKGHSKawaala: React.FC = () => {
                 Shaping Lives,<span className="text-[#800E13]"> Building Leaders</span>
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Founded in 1995 under the Gombe Education Service umbrella, St. Andrew Kaggwa Gombe High School –
-                Kawaala has grown into one of Kampala's leading Advanced Level institutions. We combine academic
-                rigour with character formation, preparing every student not just for university but for a life
-                of purpose and impact.
+                Established in June 2016 under the Gombe Education Service umbrella, St. Andrew Kaggwa Gombe
+                High School – Kawaala (Reg. No. Pss/s/141) is a vibrant mixed day and boarding secondary
+                school. Committed to academic excellence, character formation, and innovation, we empower
+                every learner to discover their potential and pursue their aspirations.
               </p>
               <div className="space-y-6">
                 {[
@@ -558,9 +558,9 @@ const SAKGHSKawaala: React.FC = () => {
                 <img src="/images/emmanuel-ikwuegbu-MUyq5MiVE2w-unsplash.jpg" alt="Students studying"
                   className="rounded-2xl shadow-2xl w-full object-cover" style={{ maxHeight: 460 }} loading="lazy" />
                 <div className="absolute -bottom-6 -left-6 bg-[#800E13] text-white p-8 rounded-2xl shadow-2xl">
-                  <div className="text-5xl font-bold mb-1" style={{ color: PRIMARY }}>30+</div>
+                  <div className="text-5xl font-bold mb-1" style={{ color: PRIMARY }}>9+</div>
                   <div className="text-base font-semibold">Years of Excellence</div>
-                  <div className="text-sm text-white/70">Established 1995</div>
+                  <div className="text-sm text-white/70">Established 2016</div>
                 </div>
               </div>
             </motion.div>
@@ -640,9 +640,9 @@ const SAKGHSKawaala: React.FC = () => {
               Join hundreds of graduates who have gone on to Uganda's top universities and careers around the world.
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-sm text-white/80 mb-10">
-              <div className="flex items-center gap-2"><LuMapPin className="w-4 h-4 text-[#FFD700]" /><span>Kawaala, Kampala, Uganda</span></div>
-              <div className="flex items-center gap-2"><LuPhone className="w-4 h-4 text-[#FFD700]" /><span>+256 700 000 000</span></div>
-              <div className="flex items-center gap-2"><LuMail className="w-4 h-4 text-[#FFD700]" /><span>info@sakghs-kawaala.ges.ac.ug</span></div>
+              <div className="flex items-center gap-2"><LuMapPin className="w-4 h-4 text-[#FFD700]" /><span>Kasubi, Kawaala, Hoima Road, Kampala</span></div>
+              <div className="flex items-center gap-2"><LuPhone className="w-4 h-4 text-[#FFD700]" /><span>+256 708 700 001</span></div>
+              <div className="flex items-center gap-2"><LuMail className="w-4 h-4 text-[#FFD700]" /><span>info@gombehighschool.ac.ug</span></div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button onClick={() => setIsApplyOpen(true)}
@@ -668,8 +668,9 @@ const SAKGHSKawaala: React.FC = () => {
               <img src="/images/Gombe High logo.png" alt="SAKGHS" className="h-20 w-auto mb-4 grayscale brightness-150" loading="lazy" />
               <h3 className="text-base font-bold text-white mb-2">St. Andrew Kaggwa Gombe High School</h3>
               <p className="text-gray-400 mb-6 text-sm leading-relaxed">
-                Providing quality advanced-level education since 1995. Two campuses — Kawaala and Bujuuko —
-                united by a commitment to excellence, character, and university readiness.
+                Established in 2016, St. Andrew Kaggwa Gombe High School Kawaala is a mixed day and boarding
+                secondary school committed to academic excellence, character formation, and holistic development,
+                guided by the motto: "Light the Lamp of Wisdom."
               </p>
               <div className="flex items-center gap-3">
                 {([FaFacebook, FaXTwitter, FaInstagram, FaLinkedin, FaWhatsapp] as React.ElementType[]).map((Icon, i) => (
@@ -690,9 +691,9 @@ const SAKGHSKawaala: React.FC = () => {
             <div>
               <h3 className="text-base font-bold mb-4 text-white">Contact Us</h3>
               <ul className="space-y-3">
-                <li className="flex items-start gap-3"><LuMapPin className="w-4 h-4 text-[#FFD700] shrink-0 mt-0.5" /><span className="text-gray-400 text-sm">Kawaala, Kampala, Uganda</span></li>
-                <li className="flex items-center gap-3"><LuPhone className="w-4 h-4 text-[#FFD700] shrink-0" /><span className="text-gray-400 text-sm">+256 700 000 000</span></li>
-                <li className="flex items-center gap-3"><LuMail className="w-4 h-4 text-[#FFD700] shrink-0" /><span className="text-gray-400 text-sm">info@sakghs-kawaala.ges.ac.ug</span></li>
+                <li className="flex items-start gap-3"><LuMapPin className="w-4 h-4 text-[#FFD700] shrink-0 mt-0.5" /><span className="text-gray-400 text-sm">Kasubi, Kawaala, Hoima Road, Kampala</span></li>
+                <li className="flex items-center gap-3"><LuPhone className="w-4 h-4 text-[#FFD700] shrink-0" /><a href="tel:+256708700001" className="text-gray-400 text-sm hover:text-[#FFD700] transition-colors">+256 708 700 001</a></li>
+                <li className="flex items-center gap-3"><LuMail className="w-4 h-4 text-[#FFD700] shrink-0" /><a href="mailto:info@gombehighschool.ac.ug" className="text-gray-400 text-sm hover:text-[#FFD700] transition-colors">info@gombehighschool.ac.ug</a></li>
               </ul>
             </div>
           </div>
