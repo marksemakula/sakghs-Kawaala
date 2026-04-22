@@ -31,7 +31,7 @@ const navItems: NavItem[] = [
   {
     label: 'About Us',
     items: [
-      { label: 'School Profile',                    href: '#school-profile' },
+      { label: 'School Profile',                    href: '/school-profile' },
       { label: 'Mission and Vision',                href: '#mission-vision' },
       { label: 'Core Values',                       href: '#core-values' },
       { label: 'Board of Governors',                href: '#board-of-governors' },
@@ -641,7 +641,7 @@ const SAKGHSKawaala: React.FC = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-sm text-white/80 mb-10">
               <div className="flex items-center gap-2"><LuMapPin className="w-4 h-4 text-[#FFD700]" /><span>Kasubi, Kawaala, Hoima Road, Kampala</span></div>
-              <div className="flex items-center gap-2"><LuPhone className="w-4 h-4 text-[#FFD700]" /><span>+256 708 700 001</span></div>
+              <div className="flex items-center gap-2"><LuPhone className="w-4 h-4 text-[#FFD700]" /><span>+256 708 700 001 / +256 708 700 006</span></div>
               <div className="flex items-center gap-2"><LuMail className="w-4 h-4 text-[#FFD700]" /><span>info@gombehighschool.ac.ug</span></div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -693,6 +693,7 @@ const SAKGHSKawaala: React.FC = () => {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3"><LuMapPin className="w-4 h-4 text-[#FFD700] shrink-0 mt-0.5" /><span className="text-gray-400 text-sm">Kasubi, Kawaala, Hoima Road, Kampala</span></li>
                 <li className="flex items-center gap-3"><LuPhone className="w-4 h-4 text-[#FFD700] shrink-0" /><a href="tel:+256708700001" className="text-gray-400 text-sm hover:text-[#FFD700] transition-colors">+256 708 700 001</a></li>
+                <li className="flex items-center gap-3"><LuPhone className="w-4 h-4 text-[#FFD700] shrink-0" /><a href="tel:+256708700006" className="text-gray-400 text-sm hover:text-[#FFD700] transition-colors">+256 708 700 006/2</a></li>
                 <li className="flex items-center gap-3"><LuMail className="w-4 h-4 text-[#FFD700] shrink-0" /><a href="mailto:info@gombehighschool.ac.ug" className="text-gray-400 text-sm hover:text-[#FFD700] transition-colors">info@gombehighschool.ac.ug</a></li>
               </ul>
             </div>

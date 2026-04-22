@@ -20,7 +20,7 @@ const navItems: NavItem[] = [
   {
     label: 'About Us',
     items: [
-      { label: 'School Profile', href: '#school-profile' },
+      { label: 'School Profile', href: '/school-profile' },
       { label: 'Mission and Vision', href: '#mission-vision' },
       { label: 'Core Values', href: '#core-values' },
       { label: 'Board of Governors', href: '#board-of-governors' },
