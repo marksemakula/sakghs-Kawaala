@@ -24,7 +24,7 @@ const navItems: NavItem[] = [
       { label: 'Mission and Vision', href: '#mission-vision' },
       { label: 'Core Values', href: '#core-values' },
       { label: 'Board of Governors', href: '#board-of-governors' },
-      { label: "Principal's Message", href: '#principals-message' },
+      { label: "Principal's Message", href: '/principals-message' },
       { label: 'Administration and Management Team', href: '#administration' },
     ],
   },
