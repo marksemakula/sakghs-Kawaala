@@ -45,7 +45,7 @@ const navItems: NavItem[] = [
       { label: 'Academic Program',        href: '#programs' },
       { label: 'Curriculum Subjects',     href: '#programs' },
       { label: 'Departments',             href: '#programs' },
-      { label: 'UNEB Results - Archives', href: '#uneb-results' },
+      { label: 'UNEB Results - Archives', href: '/uneb-results' },
     ],
   },
   {
@@ -626,6 +626,16 @@ const SAKGHSKawaala: React.FC = () => {
               </motion.div>
             ))}
           </div>
+
+          <div className="mt-16 text-center">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Admission Requirements</h3>
+            <p className="text-gray-600 mb-6">Download the complete list of requirements for the 2026 intake.</p>
+            <a href="/GOMBE HIGH SCHOOL - KAWAALA/Admissions/Requirements List 2026.pdf" download
+              className="inline-flex items-center gap-2 bg-[#800E13] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#5C0A0F] transition-colors">
+              <LuBookOpen className="w-5 h-5" />
+              Download Requirements PDF
+            </a>
+          </div>
         </div>
       </section>
 
@@ -698,7 +708,7 @@ const SAKGHSKawaala: React.FC = () => {
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-4 pb-2 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="pt-4 pb-2 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">© {new Date().getFullYear()} St. Andrew Kaggwa Gombe High School. All rights reserved.</p>
             <div className="flex items-center gap-6">
               <div className="flex gap-4 text-sm">

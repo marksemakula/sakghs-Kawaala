@@ -6,6 +6,7 @@ import './App.css';
 const SAKGHSKawaala     = lazy(() => import('./pages/SAKGHSKawaala'));
 const PrincipalsMessage = lazy(() => import('./pages/PrincipalsMessage'));
 const SchoolProfile     = lazy(() => import('./pages/SchoolProfile'));
+const UnebResults       = lazy(() => import('./pages/UnebResults'));
 
 const LoadingFallback: React.FC = () => (
   <div className="min-h-screen flex items-center justify-center bg-[#800E13]">
@@ -32,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/principals-message" element={<PrincipalsMessage />} />
           <Route path="/school-profile"     element={<SchoolProfile />} />
+          <Route path="/uneb-results"       element={<UnebResults />} />
           <Route path="/*"                  element={<SAKGHSKawaala />} />
         </Routes>
       </Suspense>

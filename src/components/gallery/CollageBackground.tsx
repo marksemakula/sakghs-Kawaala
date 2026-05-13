@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import './CollageBackground.css';
 
 const images: string[] = [
-  '/images/15-09-2015-12-03-57_DSCN1414.jpg',
-  '/images/26-08-2015-01-01-46_IMG_1441.jpg',
-  '/images/26-08-2015-01-03-29_IMG_3691.jpg',
-  '/images/26-08-2015-12-49-54__MG_8635.jpg',
-  '/images/26-08-2015-12-54-03__MG_9650.jpg',
-  '/images/73e7f5be-efe4-4779-a0dd-ec96e761e11c.jpg',
-  '/images/annie-spratt-V-XM4kkWpng-unsplash.jpg',
-  '/images/raissa-lara-lutolf-fasel-ivKWcUFJQtE-unsplash.jpg',
-  '/images/bright-kwabena-kyere-rxB0L6nrP5M-unsplash.jpg',
-  '/images/heather-suggitt-AjB5qK2rnbU-unsplash.jpg',
+  '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_2101.JPG',
+  '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CO-CIRRICULAR ACTIVITIES/IMG_2451.JPG',
+  '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6845.JPG',
+  '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/RELIGION/_MG_5502.JPG',
+  '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/TOURS/_MG_7489.JPG',
+  '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/UNIFORMS/WhatsApp Image 2026-04-17 at 7.21.17 PM.jpeg',
+  '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9828.JPG',
+  '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/IMG_6935.JPG',
+  '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9807.JPG',
+  '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_2096.JPG',
 ];
 
 const FOREGROUND_COUNT = 3;

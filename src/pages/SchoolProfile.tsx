@@ -36,7 +36,7 @@ const navItems = [
       { label: 'Academic Program',        href: '/#programs' },
       { label: 'Curriculum Subjects',     href: '/#programs' },
       { label: 'Departments',             href: '/#programs' },
-      { label: 'UNEB Results - Archives', href: '/#uneb-results' },
+      { label: 'UNEB Results - Archives', href: '/uneb-results' },
     ],
   },
   {
@@ -492,7 +492,7 @@ const SchoolProfile: React.FC = () => {
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-4 text-center">
+          <div className="pt-4 text-center">
             <p className="text-gray-400 text-sm">© {new Date().getFullYear()} St. Andrew Kaggwa Gombe High School. All rights reserved.</p>
           </div>
         </div>
