@@ -434,19 +434,6 @@ const SAKGHSKawaala: React.FC = () => {
           STATS
          ══════════════════════ */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, i) => (
-              <motion.div key={stat.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} className="text-center">
-                <div className="text-5xl md:text-6xl font-bold text-[#FFD700] mb-2">
-                  <Counter target={stat.numeric} suffix={stat.suffix} />
-                </div>
-                <div className="text-xl font-semibold text-white mb-1">{stat.label}</div>
-                <div className="text-sm text-gray-400">{stat.sublabel}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* ══════════════════════
