@@ -678,7 +678,7 @@ const SAKGHSKawaala: React.FC = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Start Your Journey?</h2>
             <div className="flex flex-wrap justify-center gap-6 text-sm text-white/80 mb-10">
               <div className="flex items-center gap-2"><LuMapPin className="w-4 h-4 text-[#FFD700]" /><span>Kasubi, Kawaala, Hoima Road, Kampala</span></div>
-              <div className="flex items-center gap-2"><LuPhone className="w-4 h-4 text-[#FFD700]" /><span>+256 708 700 001 / +256 708 700 006</span></div>
+              <div className="flex items-center gap-2"><LuPhone className="w-4 h-4 text-[#FFD700]" /><span>0708 700 001 / 0708 700 002 / 0708 700 009</span></div>
               <div className="flex items-center gap-2"><LuMail className="w-4 h-4 text-[#FFD700]" /><span>info@gombehighschool.ac.ug</span></div>
             </div>
           </motion.div>
@@ -719,8 +719,9 @@ const SAKGHSKawaala: React.FC = () => {
               <h3 className="text-base font-bold mb-4 text-white">Contact Us</h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3"><LuMapPin className="w-4 h-4 text-[#FFD700] shrink-0 mt-0.5" /><span className="text-gray-400 text-sm">Kasubi, Kawaala, Hoima Road, Kampala</span></li>
-                <li className="flex items-center gap-3"><LuPhone className="w-4 h-4 text-[#FFD700] shrink-0" /><a href="tel:+256708700001" className="text-gray-400 text-sm hover:text-[#FFD700] transition-colors">+256 708 700 001</a></li>
-                <li className="flex items-center gap-3"><LuPhone className="w-4 h-4 text-[#FFD700] shrink-0" /><a href="tel:+256708700006" className="text-gray-400 text-sm hover:text-[#FFD700] transition-colors">+256 708 700 006/2</a></li>
+                <li className="flex items-center gap-3"><LuPhone className="w-4 h-4 text-[#FFD700] shrink-0" /><a href="tel:+256708700001" className="text-gray-400 text-sm hover:text-[#FFD700] transition-colors">0708 700 001</a></li>
+                <li className="flex items-center gap-3"><LuPhone className="w-4 h-4 text-[#FFD700] shrink-0" /><a href="tel:+256708700002" className="text-gray-400 text-sm hover:text-[#FFD700] transition-colors">0708 700 002</a></li>
+                <li className="flex items-center gap-3"><LuPhone className="w-4 h-4 text-[#FFD700] shrink-0" /><a href="tel:+256708700009" className="text-gray-400 text-sm hover:text-[#FFD700] transition-colors">0708 700 009</a></li>
                 <li className="flex items-center gap-3"><LuMail className="w-4 h-4 text-[#FFD700] shrink-0" /><a href="mailto:info@gombehighschool.ac.ug" className="text-gray-400 text-sm hover:text-[#FFD700] transition-colors">info@gombehighschool.ac.ug</a></li>
               </ul>
             </div>
