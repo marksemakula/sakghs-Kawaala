@@ -449,7 +449,7 @@ const SAKGHSKawaala: React.FC = () => {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="hidden lg:flex flex-col items-center justify-center gap-6">
-              <img src="/images/Gombe High logo.png" alt="SAKGHS Logo" className="h-56 md:h-72 w-auto drop-shadow-2xl" />
+              <img src="/images/Gombe High logo.png" alt="SAKGHS Logo" className="h-[17.5rem] md:h-[22.5rem] w-auto drop-shadow-2xl" />
               <div className="flex items-center space-x-2">
                 <LuGraduationCap className="w-7 h-7 text-[#FFD700]" />
                 <span className="text-[#FFD700] font-bold tracking-wider uppercase text-sm">Excellence &amp; Character · Since 2016</span>
