@@ -459,7 +459,21 @@ const SAKGHSKawaala: React.FC = () => {
       {/* ══════════════════════
           STATS
          ══════════════════════ */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
+      <section
+        className="py-9 bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center overflow-hidden"
+      >
+        <div
+          className="w-full"
+          style={{
+            backgroundImage: 'url(/SAKGHS_AFR.jpg)',
+            backgroundRepeat: 'repeat-x',
+            backgroundPosition: 'center center',
+            backgroundSize: '720px 119px',
+            height: '119px',
+          }}
+          role="img"
+          aria-label="SAKGHS Banner"
+        />
       </section>
 
       {/* ══════════════════════
@@ -655,27 +669,14 @@ const SAKGHSKawaala: React.FC = () => {
       {/* ══════════════════════
           CTA
          ══════════════════════ */}
-      <section id="apply-now" className="py-20 bg-gradient-to-r from-[#800E13] to-[#5C0A0F]">
+      <section id="apply-now" className="py-10 bg-gradient-to-r from-[#800E13] to-[#5C0A0F]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Start Your Journey?</h2>
-            <p className="text-xl text-white/70 mb-4 max-w-2xl mx-auto">
-              Join hundreds of graduates who have gone on to Uganda's top universities and careers around the world.
-            </p>
             <div className="flex flex-wrap justify-center gap-6 text-sm text-white/80 mb-10">
               <div className="flex items-center gap-2"><LuMapPin className="w-4 h-4 text-[#FFD700]" /><span>Kasubi, Kawaala, Hoima Road, Kampala</span></div>
               <div className="flex items-center gap-2"><LuPhone className="w-4 h-4 text-[#FFD700]" /><span>+256 708 700 001 / +256 708 700 006</span></div>
               <div className="flex items-center gap-2"><LuMail className="w-4 h-4 text-[#FFD700]" /><span>info@gombehighschool.ac.ug</span></div>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => setIsApplyOpen(true)}
-                className="bg-[#FFD700] text-[#800E13] px-10 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition shadow-2xl">
-                Apply Now
-              </button>
-              <a href="#admissions"
-                className="bg-transparent border-2 border-white/60 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition">
-                Learn More
-              </a>
             </div>
           </motion.div>
         </div>
