@@ -87,7 +87,11 @@ const programs: Program[] = [
     title: 'Sciences Program', icon: LuMicroscope,
     description: 'Rigorous science curriculum covering Physics, Chemistry, Biology, and Mathematics — preparing students for medicine, engineering and technology.',
     subjects: ['Physics','Chemistry','Biology','Mathematics','ICT','Sub-Maths'],
-    images: ['/images/science.avif','/GHS_school/emmanuel-ikwuegbu-MUyq5MiVE2w-unsplash.jpg','/GHS_school/rohan-reddy-MhQxeXhE-GI-unsplash.jpg'],
+    images: [
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9893.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_2096.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_2101.JPG'
+    ],
     color: 'from-[#800E13] to-[#5C0A0F]',
   },
   {
@@ -95,7 +99,19 @@ const programs: Program[] = [
     title: 'Arts Program', icon: LuPalette,
     description: 'Broad liberal arts education in languages, humanities and social sciences — building critical thinking, communication and cultural literacy.',
     subjects: ['Literature in English','History','Geography','Economics','Languages','Divinity'],
-    images: ['/images/uni2.avif','/GHS_school/trnava-university-SwCMZwrhQm8-unsplash.jpg','/GHS_school/juma-mndeme-SQde0xURhG8-unsplash.jpg'],
+    images: [
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6845.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/IMG_6935.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6924.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6876.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6831.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6907.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6888.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6923.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6778.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9807.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_2146.JPG'
+    ],
     color: 'from-amber-700 to-yellow-700',
   },
   {
@@ -103,7 +119,12 @@ const programs: Program[] = [
     title: 'Technical Program', icon: LuCpu,
     description: 'Hands-on development in technical and vocational subjects, equipping students with practical competencies for industry and enterprise.',
     subjects: ['Technical Drawing','Computer Science','Agriculture','Business Studies','Entrepreneurship'],
-    images: ['/images/TD.avif','/ICT/premium_photo-1683134015825-74717a7b344b.avif','/GHS_school/marco-fileccia-HE7_hMkqn9A-unsplash.jpg'],
+    images: [
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9893.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9876.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9899.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/TOURS/_MG_7489.JPG'
+    ],
     color: 'from-slate-700 to-gray-800',
   },
   {
@@ -111,7 +132,12 @@ const programs: Program[] = [
     title: 'Business Studies', icon: LuBriefcase,
     description: 'Develop entrepreneurial thinking and business acumen through practical economics, accounting and commerce — the foundation for tomorrow\'s leaders.',
     subjects: ['Economics','Accounting','Commerce','Entrepreneurship','Business Management'],
-    images: ['/images/premium_photo-1713890429200-e725c894ab95.avif','/GHS_school/oscar-omondi-u9BPnG0ADsU-unsplash.jpg','/images/uni2.avif'],
+    images: [
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9777.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9794.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9718.JPG',
+      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9712.JPG'
+    ],
     color: 'from-emerald-700 to-teal-700',
   },
 ];
