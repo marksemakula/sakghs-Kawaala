@@ -385,7 +385,7 @@ const SAKGHSKawaala: React.FC = () => {
          ══════════════════════ */}
       <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/images/emmanuel-ikwuegbu-MUyq5MiVE2w-unsplash.jpg" alt="Campus" className="w-full h-full object-cover" loading="eager" />
+          <img src="/IMG_9777.JPG" alt="Campus" className="w-full h-full object-cover" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#800E13]/95 via-[#5C0A0F]/90 to-[#800E13]/80" />
         </div>
         {/* Diagonal accent */}
@@ -542,7 +542,7 @@ const SAKGHSKawaala: React.FC = () => {
 
             <motion.div initial={{ opacity:0, x:50 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} className="relative">
               <div className="relative">
-                <img src="/images/emmanuel-ikwuegbu-MUyq5MiVE2w-unsplash.jpg" alt="Students studying"
+                <img src="/IMG_1952.JPG" alt="Students studying"
                   className="rounded-2xl shadow-2xl w-full object-cover" style={{ maxHeight: 460 }} loading="lazy" />
                 <div className="absolute -bottom-6 -left-6 bg-[#800E13] text-white p-8 rounded-2xl shadow-2xl">
                   <div className="text-5xl font-bold mb-1" style={{ color: PRIMARY }}>9+</div>
