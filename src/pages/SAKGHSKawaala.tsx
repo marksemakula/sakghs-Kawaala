@@ -352,6 +352,7 @@ const InlineHeader: React.FC<{ onApply: () => void }> = ({ onApply }) => {
 const SAKGHSKawaala: React.FC = () => {
   const [activeTab,        setActiveTab]        = useState<string>('all');
   const [isApplyOpen,      setIsApplyOpen]      = useState(false);
+  const [isVideoOpen,      setIsVideoOpen]      = useState(false);
   const [programImages,    setProgramImages]    = useState<Record<number,number>>(() =>
     Object.fromEntries(programs.map((_, i) => [i, 0]))
   );
@@ -438,11 +439,13 @@ const SAKGHSKawaala: React.FC = () => {
                   <span>Apply Now</span>
                   <LuArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <a href="#programs"
-                  className="group bg-white/10 border-2 border-white/40 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition flex items-center justify-center space-x-2">
+                <button
+                  onClick={() => setIsVideoOpen(true)}
+                  className="group bg-white/10 border-2 border-white/40 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition flex items-center justify-center space-x-2"
+                >
                   <LuPlay className="w-5 h-5" />
                   <span>Our Programs</span>
-                </a>
+                </button>
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="hidden lg:flex flex-col items-center justify-center gap-6">
@@ -795,6 +798,38 @@ const SAKGHSKawaala: React.FC = () => {
                   <button type="button" onClick={() => setIsApplyOpen(false)} className="flex-1 border border-gray-300 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-50 transition text-sm">Cancel</button>
                 </div>
               </form>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ══════════════════════
+          VIDEO MODAL
+         ══════════════════════ */}
+      <AnimatePresence>
+        {isVideoOpen && (
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            onClick={() => setIsVideoOpen(false)}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-[200] p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <button
+                onClick={() => setIsVideoOpen(false)}
+                className="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 transition text-xl font-light"
+              >
+                ×
+              </button>
+              <video
+                src="/GOMBE HIGH SCHOOL - KAWAALA/Home page/GHS-KAWAALA Virtual tour.mp4"
+                controls
+                autoPlay
+                className="w-full h-full object-cover"
+              />
             </motion.div>
           </motion.div>
         )}
