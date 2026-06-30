@@ -25,7 +25,7 @@ const navItems = [
       { label: 'School Profile',                     href: '/school-profile' },
       { label: 'Mission and Vision',                 href: '/school-profile#mission-vision' },
       { label: 'Core Values',                        href: '/school-profile#core-values' },
-      { label: 'Board of Governors',                 href: '/#board-of-governors' },
+      { label: 'Administrators',                     href: '/administrators' },
       { label: "Principal's Message",                href: '/principals-message' },
       { label: 'Administration and Management Team', href: '/#administration' },
     ],
@@ -269,7 +269,7 @@ const SchoolProfile: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#800E13]/20">
             {[
               { label: 'Founded',    value: 'June 2016' },
-              { label: 'Reg. No.',   value: 'Pss/s/141' },
+              { label: 'Reg. No.',   value: 'PSS/S/141' },
               { label: 'Type',       value: 'Day & Boarding' },
               { label: 'Motto',      value: '"Light the Lamp of Wisdom"' },
             ].map(({ label, value }) => (
@@ -289,14 +289,14 @@ const SchoolProfile: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-[#FFF6CC]/40 border border-[#FFD700]/30 rounded-3xl p-8 md:p-12 relative overflow-hidden"
+            className="bg-[#FFF6CC]/40 border border-[#FFD700]/30 rounded-none p-8 md:p-12 relative overflow-hidden"
           >
             <div className="absolute top-4 left-8 text-[#FFD700]/20 text-[10rem] font-serif leading-none select-none pointer-events-none">
               &ldquo;
             </div>
             <div className="relative space-y-5 text-gray-700 leading-relaxed">
               <p className="text-lg">
-                Established in June 2016, <strong>St. Andrew Kaggwa Gombe High School Kawaala</strong> (Reg.&nbsp;No.&nbsp;Pss/s/141)
+                Established in June 2016, <strong>St. Andrew Kaggwa Gombe High School Kawaala</strong> (Reg.&nbsp;No.&nbsp;PSS/S/141)
                 has steadily grown into a vibrant centre of learning committed to academic excellence, character formation,
                 and innovation. The school is a mixed day and boarding secondary school that provides a supportive and inclusive
                 environment where learners are empowered to discover their potential and pursue their aspirations.
@@ -369,7 +369,7 @@ const SchoolProfile: React.FC = () => {
               <motion.div key={label}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.08 }} viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-[#FFD700] hover:shadow-lg transition-all duration-300"
+                className="bg-white rounded-none p-6 border border-gray-100 hover:border-[#FFD700] hover:shadow-lg transition-all duration-300"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#FFF6CC] flex items-center justify-center mb-4">
                   <Icon className="w-6 h-6 text-[#800E13]" />
@@ -401,7 +401,7 @@ const SchoolProfile: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl hover:shadow-2xl hover:border-[#FFD700] transition-all duration-300 flex flex-col items-center text-center relative overflow-hidden group"
+              className="bg-white rounded-none p-8 border border-gray-100 shadow-xl hover:shadow-2xl hover:border-[#FFD700] transition-all duration-300 flex flex-col items-center text-center relative overflow-hidden group"
             >
               {/* Decorative top gradient border */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#800E13] to-[#FFD700]" />
@@ -421,7 +421,7 @@ const SchoolProfile: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.15 }}
-              className="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl hover:shadow-2xl hover:border-[#FFD700] transition-all duration-300 flex flex-col items-center text-center relative overflow-hidden group"
+              className="bg-white rounded-none p-8 border border-gray-100 shadow-xl hover:shadow-2xl hover:border-[#FFD700] transition-all duration-300 flex flex-col items-center text-center relative overflow-hidden group"
             >
               {/* Decorative top gradient border */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#FFD700] to-[#800E13]" />

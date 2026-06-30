@@ -34,7 +34,7 @@ const navItems: NavItem[] = [
       { label: 'School Profile',                    href: '/school-profile' },
       { label: 'Mission and Vision',                href: '/school-profile#mission-vision' },
       { label: 'Core Values',                       href: '/school-profile#core-values' },
-      { label: 'Board of Governors',                href: '#board-of-governors' },
+      { label: 'Administrators',                    href: '/administrators' },
       { label: "Principal's Message",               href: '/principals-message' },
       { label: 'Administration and Management Team',href: '#administration' },
     ],
@@ -560,7 +560,7 @@ const SAKGHSKawaala: React.FC = () => {
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Established in June 2016 under the Gombe Education Service umbrella, St. Andrew Kaggwa Gombe
-                High School – Kawaala (Reg. No. Pss/s/141) is a vibrant mixed day and boarding secondary
+                High School – Kawaala (Reg. No. PSS/S/141) is a vibrant mixed day and boarding secondary
                 school. Committed to academic excellence, character formation, and innovation, we empower
                 every learner to discover their potential and pursue their aspirations.
               </p>
