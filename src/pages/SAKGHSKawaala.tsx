@@ -639,9 +639,9 @@ const SAKGHSKawaala: React.FC = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {admissionSteps.map((step, i) => (
               <motion.div key={step.title} initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} transition={{ delay: i*0.08 }} viewport={{ once:true }}
-                className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-[#FFD700] hover:shadow-lg transition-all duration-300">
+                className="bg-gray-50 rounded-none p-6 border border-gray-100 hover:border-[#FFD700] hover:shadow-lg transition-all duration-300">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#FFF6CC] flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-none bg-[#FFF6CC] flex items-center justify-center">
                     <step.icon className="w-6 h-6 text-[#800E13]" />
                   </div>
                   <span className="text-sm font-semibold text-[#800E13]">Step {i+1}</span>
