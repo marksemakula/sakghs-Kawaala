@@ -23,8 +23,8 @@ const navItems = [
     label: 'About Us',
     items: [
       { label: 'School Profile',                     href: '/school-profile' },
-      { label: 'Mission and Vision',                 href: '/#mission-vision' },
-      { label: 'Core Values',                        href: '/#core-values' },
+      { label: 'Mission and Vision',                 href: '/school-profile#mission-vision' },
+      { label: 'Core Values',                        href: '/school-profile#core-values' },
       { label: 'Board of Governors',                 href: '/#board-of-governors' },
       { label: "Principal's Message",                href: '/principals-message' },
       { label: 'Administration and Management Team', href: '/#administration' },
@@ -224,14 +224,7 @@ const coreValues = [
   { icon: LuBookOpen, label: 'Time Management', desc: 'Respecting and making the most of every learning opportunity.' },
 ];
 
-const highlights = [
-  { icon: LuMicroscope, title: 'Science Excellence',    desc: 'Unmatched labs with a 1:1 student-to-apparatus ratio. Practical work begins from Senior One.' },
-  { icon: LuBookOpen,   title: 'Balanced Curriculum',   desc: 'Sciences, humanities, languages, mathematics, arts, and vocational skills for well-rounded graduates.' },
-  { icon: LuMusic,      title: 'Rich Co-Curricular',    desc: 'Sports, music (brass band, saxophone, jazz, drums, piano, guitar, flute), drama, debate, and clubs.' },
-  { icon: LuUsers,      title: 'Boarding & Day',        desc: 'Well-maintained dormitories, nutritious balanced meals, and a structured day section for the community.' },
-  { icon: LuShield,     title: 'Safe Environment',      desc: 'CCTV, fire drills, counselling, peer counsellors, and multi-religious worship spaces on campus.' },
-  { icon: LuGlobe,      title: 'Global Exposure',       desc: 'Students produce crafts exported to India and East Africa. International outlook embedded in learning.' },
-];
+
 
 /* ═══════════════════════════════
    MAIN PAGE
@@ -357,7 +350,7 @@ const SchoolProfile: React.FC = () => {
       </section>
 
       {/* ── Core Values ── */}
-      <section className="py-16 bg-gray-50">
+      <section id="core-values" className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -389,33 +382,58 @@ const SchoolProfile: React.FC = () => {
         </div>
       </section>
 
-      {/* ── Highlights ── */}
-      <section className="py-16 bg-white">
+      {/* ── Mission & Vision ── */}
+      <section id="mission-vision" className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
               <div className="h-1 w-12 bg-[#800E13]" />
-              <span className="text-[#800E13] font-bold tracking-wider uppercase text-sm">What Sets Us Apart</span>
+              <span className="text-[#800E13] font-bold tracking-wider uppercase text-sm">Mission and Vision</span>
               <div className="h-1 w-12 bg-[#800E13]" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">School Highlights</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Mission &amp; Vision</h2>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {highlights.map(({ icon: Icon, title, desc }, i) => (
-              <motion.div key={title}
-                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.08 }} viewport={{ once: true }}
-                className="flex items-start gap-4 bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-[#FFD700] hover:shadow-lg transition-all duration-300"
-              >
-                <div className="w-11 h-11 rounded-xl bg-[#FFF6CC] flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-5 h-5 text-[#800E13]" />
-                </div>
-                <div>
-                  <h3 className="text-base font-bold text-gray-900 mb-1">{title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{desc}</p>
-                </div>
-              </motion.div>
-            ))}
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Mission Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl hover:shadow-2xl hover:border-[#FFD700] transition-all duration-300 flex flex-col items-center text-center relative overflow-hidden group"
+            >
+              {/* Decorative top gradient border */}
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#800E13] to-[#FFD700]" />
+              
+              <div className="w-16 h-16 rounded-2xl bg-[#FFF6CC] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <LuTarget className="w-8 h-8 text-[#800E13]" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
+              <p className="text-gray-600 text-base leading-relaxed">
+                To provide quality holistic education that fosters creativity, critical thinking and collaboration to produce competent global citizens.
+              </p>
+            </motion.div>
+
+            {/* Vision Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl hover:shadow-2xl hover:border-[#FFD700] transition-all duration-300 flex flex-col items-center text-center relative overflow-hidden group"
+            >
+              {/* Decorative top gradient border */}
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#FFD700] to-[#800E13]" />
+              
+              <div className="w-16 h-16 rounded-2xl bg-[#FFF6CC] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <LuAward className="w-8 h-8 text-[#800E13]" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
+              <p className="text-gray-600 text-base leading-relaxed">
+                At the helm of producing competent, responsible, self-reliant and flexible citizens.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
