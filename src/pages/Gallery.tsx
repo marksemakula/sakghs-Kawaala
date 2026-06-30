@@ -19,9 +19,8 @@ const navItems = [
       { label: 'School Profile', href: '/school-profile' },
       { label: 'Mission and Vision', href: '/school-profile#mission-vision' },
       { label: 'Core Values', href: '/school-profile#core-values' },
-      { label: 'Administrators', href: '/administrators' },
+      { label: 'Administration & Management', href: '/administrators' },
       { label: "Principal's Message", href: '/principals-message' },
-      { label: 'Administration and Management Team', href: '/#administration' },
     ],
   },
   {

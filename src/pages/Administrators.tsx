@@ -19,9 +19,8 @@ const navItems = [
       { label: 'School Profile',                     href: '/school-profile' },
       { label: 'Mission and Vision',                 href: '/school-profile#mission-vision' },
       { label: 'Core Values',                        href: '/school-profile#core-values' },
-      { label: 'Administrators',                     href: '/administrators' },
+      { label: 'Administration & Management',        href: '/administrators' },
       { label: "Principal's Message",                href: '/principals-message' },
-      { label: 'Administration and Management Team', href: '/#administration' },
     ],
   },
   {
@@ -341,7 +340,7 @@ const Administrators: React.FC = () => {
                 <li><a href="/school-profile" className="hover:text-[#FFD700] transition-colors">School Profile</a></li>
                 <li><a href="/school-profile#mission-vision" className="hover:text-[#FFD700] transition-colors">Mission &amp; Vision</a></li>
                 <li><a href="/school-profile#core-values" className="hover:text-[#FFD700] transition-colors">Core Values</a></li>
-                <li><a href="/administrators" className="hover:text-[#FFD700] transition-colors">Administrators</a></li>
+                <li><a href="/administrators" className="hover:text-[#FFD700] transition-colors">Administration & Management</a></li>
                 <li><a href="/principals-message" className="hover:text-[#FFD700] transition-colors">Principal's Message</a></li>
               </ul>
             </div>
