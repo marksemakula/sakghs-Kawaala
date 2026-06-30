@@ -587,11 +587,6 @@ const SAKGHSKawaala: React.FC = () => {
               <div className="relative">
                 <img src="/IMG_1952.JPG" alt="Students studying"
                   className="rounded-2xl shadow-2xl w-full object-cover" style={{ maxHeight: 460 }} loading="lazy" />
-                <div className="absolute -bottom-6 -left-6 bg-[#800E13] text-white p-8 rounded-2xl shadow-2xl">
-                  <div className="text-5xl font-bold mb-1" style={{ color: PRIMARY }}>9+</div>
-                  <div className="text-base font-semibold">Years of Excellence</div>
-                  <div className="text-sm text-white/70">Established 2016</div>
-                </div>
               </div>
             </motion.div>
           </div>
