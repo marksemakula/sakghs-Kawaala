@@ -514,10 +514,10 @@ const SAKGHSKawaala: React.FC = () => {
                 const img = prog.images[(programImages[pi] ?? 0) % prog.images.length];
                 return (
                   <motion.div key={prog.id} layout initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} exit={{ opacity:0, y:-10 }} transition={{ delay: index * 0.07 }}
-                    className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col">
+                    className="group bg-white rounded-none overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col">
                     <div className="relative h-44 overflow-hidden">
                       <img src={img} alt={prog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                      <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-white/90 flex items-center justify-center shadow-lg">
+                      <div className="absolute top-4 left-4 w-12 h-12 rounded-none bg-white/90 flex items-center justify-center shadow-lg">
                         <prog.icon className="w-6 h-6 text-[#800E13]" />
                       </div>
                     </div>
