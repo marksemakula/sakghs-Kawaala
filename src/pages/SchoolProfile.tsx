@@ -453,7 +453,7 @@ const SchoolProfile: React.FC = () => {
             ].map(({ icon: Icon, label, value }) => (
               <motion.div key={label}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+                className="p-6"
               >
                 <div className="w-12 h-12 rounded-full bg-[#FFD700]/20 flex items-center justify-center mx-auto mb-3">
                   <Icon className="w-5 h-5 text-[#FFD700]" />
