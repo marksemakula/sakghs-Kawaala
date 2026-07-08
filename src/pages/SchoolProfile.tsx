@@ -6,7 +6,7 @@ import {
   LuBookOpen, LuMicroscope, LuUsers, LuAward,
   LuTarget, LuHeart, LuShield, LuMusic,
 } from 'react-icons/lu';
-import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp, FaYoutube, FaTiktok } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 /* ─────────────────────────────
@@ -51,8 +51,8 @@ const navItems = [
   {
     label: 'Student Life',
     items: [
-      { label: 'Articles',                    href: '/#articles' },
-      { label: 'Images',                      href: '/#gallery' },
+      { label: 'Updates',                    href: '/#articles' },
+      { label: 'Images',                      href: '/gallery' },
       { label: 'Student Clubs and Societies', href: '/#clubs-societies' },
     ],
   },
@@ -104,7 +104,7 @@ const PageHeader: React.FC = () => {
               </div>
               <div className={`text-xs font-semibold tracking-wider transition-colors ${scrolled ? 'text-[#800E13]' : 'text-[#FFD700]'}`}
                 style={{ color: scrolled ? SECONDARY : PRIMARY }}>
-                EXCELLENCE &amp; CHARACTER · SINCE 2016
+                LIGHT THE LAMP OF WISDOM · SINCE 2016
               </div>
             </div>
           </a>
@@ -223,6 +223,15 @@ const coreValues = [
   { icon: LuBookOpen, label: 'Time Management', desc: 'Respecting and making the most of every learning opportunity.' },
 ];
 
+const highlights = [
+  { icon: LuMicroscope, title: 'Science Excellence',    desc: 'Unmatched labs with a 1:1 student-to-apparatus ratio. Practical work begins from Senior One.' },
+  { icon: LuBookOpen,   title: 'Balanced Curriculum',   desc: 'Sciences, humanities, languages, mathematics, arts, and vocational skills for well-rounded graduates.' },
+  { icon: LuMusic,      title: 'Rich Co-Curricular',    desc: 'Sports, music (brass band, saxophone, jazz, drums, piano, guitar, flute), drama, debate, and clubs.' },
+  { icon: LuUsers,      title: 'Boarding & Day',        desc: 'Well-maintained dormitories, nutritious balanced meals, and a structured day section for the community.' },
+  { icon: LuShield,     title: 'Safe Environment',      desc: 'CCTV, fire drills, counselling, peer counsellors, and multi-religious worship spaces on campus.' },
+  { icon: LuGlobe,      title: 'Global Exposure',       desc: 'Students produce crafts exported to India and East Africa. International outlook embedded in learning.' },
+];
+
 
 
 /* ═══════════════════════════════
@@ -242,6 +251,8 @@ const SchoolProfile: React.FC = () => {
 
       {/* ── Hero banner ── */}
       <div className="relative pt-24 pb-16 bg-gradient-to-r from-[#800E13] to-[#5C0A0F] overflow-hidden">
+        <img src="/GOMBE HIGH SCHOOL - KAWAALA/Home page/GOMBE HIGH SCHOOL.jpg" alt="" className="absolute inset-0 w-full h-full object-cover opacity-20" loading="eager" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#800E13]/80 to-[#5C0A0F]/80" />
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FFD700] to-transparent" />
         <div className="absolute inset-0 opacity-10"
           style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, #FFD700 0%, transparent 50%), radial-gradient(circle at 80% 20%, #FFD700 0%, transparent 40%)' }} />
@@ -288,7 +299,7 @@ const SchoolProfile: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-[#FFF6CC]/40 border border-[#FFD700]/30 rounded-none p-8 md:p-12 relative overflow-hidden"
+            className="bg-[#FFF6CC]/40 border border-[#FFD700]/30 rounded-3xl p-8 md:p-12 relative overflow-hidden"
           >
             <div className="absolute top-4 left-8 text-[#FFD700]/20 text-[10rem] font-serif leading-none select-none pointer-events-none">
               &ldquo;
@@ -368,7 +379,7 @@ const SchoolProfile: React.FC = () => {
               <motion.div key={label}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.08 }} viewport={{ once: true }}
-                className="bg-white rounded-none p-6 border border-gray-100 hover:border-[#FFD700] hover:shadow-lg transition-all duration-300"
+                className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-[#FFD700] hover:shadow-lg transition-all duration-300"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#FFF6CC] flex items-center justify-center mb-4">
                   <Icon className="w-6 h-6 text-[#800E13]" />
@@ -400,7 +411,7 @@ const SchoolProfile: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-white rounded-none p-8 border border-gray-100 shadow-xl hover:shadow-2xl hover:border-[#FFD700] transition-all duration-300 flex flex-col items-center text-center relative overflow-hidden group"
+              className="bg-white rounded-2xl p-8 border border-gray-100 shadow-xl hover:shadow-2xl hover:border-[#FFD700] transition-all duration-300 flex flex-col items-center text-center relative overflow-hidden group"
             >
               {/* Decorative top gradient border */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#800E13] to-[#FFD700]" />
@@ -420,7 +431,7 @@ const SchoolProfile: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.15 }}
-              className="bg-white rounded-none p-8 border border-gray-100 shadow-xl hover:shadow-2xl hover:border-[#FFD700] transition-all duration-300 flex flex-col items-center text-center relative overflow-hidden group"
+              className="bg-white rounded-2xl p-8 border border-gray-100 shadow-xl hover:shadow-2xl hover:border-[#FFD700] transition-all duration-300 flex flex-col items-center text-center relative overflow-hidden group"
             >
               {/* Decorative top gradient border */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#FFD700] to-[#800E13]" />
@@ -433,6 +444,37 @@ const SchoolProfile: React.FC = () => {
                 At the helm of producing competent, responsible, self-reliant and flexible citizens.
               </p>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Highlights ── */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-1 w-12 bg-[#800E13]" />
+              <span className="text-[#800E13] font-bold tracking-wider uppercase text-sm">What Sets Us Apart</span>
+              <div className="h-1 w-12 bg-[#800E13]" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">School Highlights</h2>
+          </motion.div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {highlights.map(({ icon: Icon, title, desc }, i) => (
+              <motion.div key={title}
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08 }} viewport={{ once: true }}
+                className="flex items-start gap-4 bg-white rounded-2xl p-6 border border-gray-100 hover:border-[#FFD700] hover:shadow-lg transition-all duration-300"
+              >
+                <div className="w-11 h-11 rounded-xl bg-[#FFF6CC] flex items-center justify-center flex-shrink-0">
+                  <Icon className="w-5 h-5 text-[#800E13]" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-gray-900 mb-1">{title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{desc}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -476,7 +518,7 @@ const SchoolProfile: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between gap-8 mb-8">
             <div className="max-w-sm">
-              <img src="/images/Gombe High logo.png" alt="SAKGHS" className="h-16 w-auto mb-3 grayscale brightness-150" loading="lazy" />
+              <img src="/images/Gombe High logo.png" alt="SAKGHS" className="h-32 w-auto mb-3" loading="lazy" />
               <h3 className="text-base font-bold text-white mb-2">St. Andrew Kaggwa Gombe High School</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
                 Established in June 2016, St. Andrew Kaggwa Gombe High School Kawaala is a mixed day and boarding
@@ -484,9 +526,15 @@ const SchoolProfile: React.FC = () => {
                 guided by the motto: "Light the Lamp of Wisdom."
               </p>
               <div className="flex items-center gap-3 mt-4">
-                {([FaFacebook, FaXTwitter, FaInstagram, FaLinkedin, FaWhatsapp] as React.ElementType[]).map((Icon, i) => (
-                  <a key={i} href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FFD700]/20 hover:text-[#FFD700] transition-colors text-gray-300">
-                    <Icon className="w-4 h-4" />
+                {[
+                  { icon: FaFacebook, href: "https://www.facebook.com/share/1KtMX5AvjT/", label: "Facebook" },
+                  { icon: FaXTwitter, href: "https://x.com/gombehighschool", label: "X" },
+                  { icon: FaInstagram, href: "https://www.instagram.com/st.andrewkaggwagombehighschool?igsh=MW56MjRyMGtrdHRncQ==", label: "Instagram" },
+                  { icon: FaYoutube, href: "https://www.youtube.com/@watchgombess", label: "YouTube" },
+                  { icon: FaTiktok, href: "https://www.tiktok.com/@gombehighschoolkawaala?_r=1&_t=ZS-97XNihHM2hL", label: "TikTok" }
+                ].map((social) => (
+                  <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FFD700]/20 hover:text-[#FFD700] transition-colors text-gray-300" aria-label={social.label}>
+                    <social.icon className="w-4 h-4" />
                   </a>
                 ))}
               </div>

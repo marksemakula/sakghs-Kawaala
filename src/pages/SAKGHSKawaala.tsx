@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useInView, useMotionValue, useSpring, animate } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
-  LuArrowRight, LuGraduationCap, LuUsers, LuAward, LuBookOpen, LuTarget,
+  LuArrowRight, LuGraduationCap, LuUsers, LuAward, LuBookOpen,
   LuCalendar, LuMapPin, LuPhone, LuMail, LuMenu, LuX, LuChevronDown,
   LuPlay, LuMicroscope, LuPalette, LuCpu, LuBriefcase,
 } from 'react-icons/lu';
-import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp, FaYoutube, FaTiktok } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 /* ─────────────────────────────
@@ -14,12 +14,14 @@ import { FaXTwitter } from 'react-icons/fa6';
 const PRIMARY   = '#FFD700';
 const SECONDARY = '#800E13';
 
+/* Kawaala campus photo helper */
+const KAW = (p: string) => `/GOMBE HIGH SCHOOL - KAWAALA/${p}`;
+
 /* ─────────────────────────────
    Types
    ───────────────────────────── */
 interface NavSubItem { label: string; href: string }
 interface NavItem    { label: string; items: NavSubItem[] }
-interface Stat       { icon: React.ElementType; label: string; sublabel: string; numeric: number; suffix: string }
 interface Program    { id: string; category: string; title: string; icon: React.ElementType; description: string; subjects: string[]; images: string[]; color: string }
 interface AdmissionStep { title: string; detail: string; icon: React.ElementType }
 interface Partner    { name: string; logo: string }
@@ -60,22 +62,13 @@ const navItems: NavItem[] = [
   {
     label: 'Student Life',
     items: [
-      { label: 'Articles',                    href: '#articles' },
+      { label: 'Updates',                     href: '#articles' },
       { label: 'Images',                      href: '/gallery' },
       { label: 'Student Clubs and Societies', href: '#clubs-societies' },
     ],
   },
 ];
 
-/* ─────────────────────────────
-   Stats
-   ───────────────────────────── */
-const stats: Stat[] = [
-  { icon: LuUsers,    label: 'Students Enrolled',    sublabel: 'Active Learners',     numeric: 550, suffix: '+' },
-  { icon: LuAward,    label: 'UACE Pass Rate',        sublabel: 'National Excellence', numeric: 97,  suffix: '%' },
-  { icon: LuBookOpen, label: 'Subjects Offered',      sublabel: 'Broad Curriculum',    numeric: 20,  suffix: '+' },
-  { icon: LuTarget,   label: 'University Admissions', sublabel: 'Class of 2024',       numeric: 94,  suffix: '%' },
-];
 
 /* ─────────────────────────────
    Programs
@@ -87,9 +80,9 @@ const programs: Program[] = [
     description: 'Rigorous science curriculum covering Physics, Chemistry, Biology, and Mathematics — preparing students for medicine, engineering and technology.',
     subjects: ['Physics','Chemistry','Biology','Mathematics','ICT','Sub-Maths'],
     images: [
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9893.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_2096.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_2101.JPG'
+      KAW('Students life/Gallery/CLASSES/IMG_9893.JPG'),
+      KAW('Students life/Gallery/CLASSES/IMG_2096.JPG'),
+      KAW('Students life/Gallery/CLASSES/IMG_2101.JPG'),
     ],
     color: 'from-[#800E13] to-[#5C0A0F]',
   },
@@ -99,17 +92,17 @@ const programs: Program[] = [
     description: 'Broad liberal arts education in languages, humanities and social sciences — building critical thinking, communication and cultural literacy.',
     subjects: ['Literature in English','History','Geography','Economics','Languages','Divinity'],
     images: [
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6845.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/IMG_6935.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6924.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6876.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6831.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6907.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6888.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6923.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/DANCESPORT/_MG_6778.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9807.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_2146.JPG'
+      KAW('Students life/Gallery/DANCESPORT/_MG_6845.JPG'),
+      KAW('Students life/Gallery/DANCESPORT/IMG_6935.JPG'),
+      KAW('Students life/Gallery/DANCESPORT/_MG_6924.JPG'),
+      KAW('Students life/Gallery/DANCESPORT/_MG_6876.JPG'),
+      KAW('Students life/Gallery/DANCESPORT/_MG_6831.JPG'),
+      KAW('Students life/Gallery/DANCESPORT/_MG_6907.JPG'),
+      KAW('Students life/Gallery/DANCESPORT/_MG_6888.JPG'),
+      KAW('Students life/Gallery/DANCESPORT/_MG_6923.JPG'),
+      KAW('Students life/Gallery/DANCESPORT/_MG_6778.JPG'),
+      KAW('Students life/Gallery/CLASSES/IMG_9807.JPG'),
+      KAW('Students life/Gallery/CLASSES/IMG_2146.JPG'),
     ],
     color: 'from-amber-700 to-yellow-700',
   },
@@ -119,10 +112,10 @@ const programs: Program[] = [
     description: 'Hands-on development in technical and vocational subjects, equipping students with practical competencies for industry and enterprise.',
     subjects: ['Technical Drawing','Computer Science','Agriculture','Business Studies','Entrepreneurship'],
     images: [
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9893.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9876.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9899.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/TOURS/_MG_7489.JPG'
+      KAW('Students life/Gallery/CLASSES/IMG_9893.JPG'),
+      KAW('Students life/Gallery/CLASSES/IMG_9876.JPG'),
+      KAW('Students life/Gallery/CLASSES/IMG_9899.JPG'),
+      KAW('Students life/Gallery/TOURS/_MG_7489.JPG'),
     ],
     color: 'from-slate-700 to-gray-800',
   },
@@ -132,10 +125,10 @@ const programs: Program[] = [
     description: 'Develop entrepreneurial thinking and business acumen through practical economics, accounting and commerce — the foundation for tomorrow\'s leaders.',
     subjects: ['Economics','Accounting','Commerce','Entrepreneurship','Business Management'],
     images: [
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9777.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9794.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9718.JPG',
-      '/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_9712.JPG'
+      KAW('Students life/Gallery/CLASSES/IMG_9777.JPG'),
+      KAW('Students life/Gallery/CLASSES/IMG_9794.JPG'),
+      KAW('Students life/Gallery/CLASSES/IMG_9718.JPG'),
+      KAW('Students life/Gallery/CLASSES/IMG_9712.JPG'),
     ],
     color: 'from-emerald-700 to-teal-700',
   },
@@ -163,27 +156,6 @@ const rawPartners: Partner[] = [
 ];
 const partners: Partner[] = [...rawPartners, ...rawPartners];
 
-/* ─────────────────────────────
-   Animated counter
-   ───────────────────────────── */
-const Counter: React.FC<{ target: number; suffix: string }> = ({ target, suffix }) => {
-  const ref      = useRef<HTMLSpanElement>(null);
-  const inView   = useInView(ref, { once: true, margin: '-60px' });
-  const motionVal = useMotionValue(0);
-  const spring   = useSpring(motionVal, { damping: 40, stiffness: 200 });
-
-  useEffect(() => {
-    if (!inView) return;
-    const ctrl = animate(motionVal, target, { duration: 1.8, ease: 'easeOut' });
-    return () => ctrl.stop();
-  }, [inView, motionVal, target]);
-
-  useEffect(() => spring.on('change', (v) => {
-    if (ref.current) ref.current.textContent = `${Math.round(v)}${suffix}`;
-  }), [spring, suffix]);
-
-  return <span ref={ref}>0{suffix}</span>;
-};
 
 /* ─────────────────────────────
    Section label
@@ -236,7 +208,7 @@ const InlineHeader: React.FC<{ onApply: () => void }> = ({ onApply }) => {
                 St. Andrew Kaggwa Gombe HS
               </div>
               <div className={`text-xs font-semibold tracking-wider transition-colors ${scrolled ? 'text-[#800E13]' : 'text-[#FFD700]'}`}>
-                EXCELLENCE &amp; CHARACTER · SINCE 2016
+                LIGHT THE LAMP OF WISDOM · SINCE 2016
               </div>
             </div>
           </a>
@@ -378,7 +350,7 @@ const SAKGHSKawaala: React.FC = () => {
   /* Title & favicon */
   useEffect(() => {
     const prev = document.title;
-    document.title = 'St. Andrew Kaggwa Gombe HS \u2013 Kawaala';
+    document.title = 'St. Andrew Kaggwa Gombe HS – Kawaala';
     return () => { document.title = prev; };
   }, []);
 
@@ -411,8 +383,8 @@ const SAKGHSKawaala: React.FC = () => {
          ══════════════════════ */}
       <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/IMG_9777.JPG" alt="Campus" className="w-full h-full object-cover" loading="eager" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#800E13]/95 via-[#5C0A0F]/90 to-[#800E13]/80" />
+          <img src="/IMG_9777.JPG" alt="SAKGHS Kawaala campus" className="w-full h-full object-cover" loading="eager" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/20" />
         </div>
         {/* Diagonal accent */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-br from-[#800E13] to-[#FFD700]/10 transform skew-x-12 origin-top-right opacity-20 pointer-events-none" />
@@ -433,25 +405,35 @@ const SAKGHSKawaala: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => setIsApplyOpen(true)}
-                  className="group bg-[#FFD700] text-[#800E13] px-8 py-4 rounded-none font-bold text-lg hover:bg-yellow-300 transition shadow-2xl hover:shadow-[#FFD700]/40 flex items-center justify-center space-x-2"
+                  className="group bg-[#FFD700] text-[#800E13] px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition shadow-2xl hover:shadow-[#FFD700]/40 flex items-center justify-center space-x-2"
                 >
                   <span>Apply Now</span>
                   <LuArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button
                   onClick={() => setIsVideoOpen(true)}
-                  className="group bg-white/10 border-2 border-white/40 text-white px-8 py-4 rounded-none font-bold text-lg hover:bg-white/20 transition flex items-center justify-center space-x-2"
+                  className="group bg-white/10 border-2 border-white/40 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition flex items-center justify-center space-x-2"
                 >
                   <LuPlay className="w-5 h-5" />
-                  <span>Our Programs</span>
+                  <span>Virtual Tour</span>
                 </button>
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="hidden lg:flex flex-col items-center justify-center gap-6">
-              <img src="/images/Gombe High logo.png" alt="SAKGHS Logo" className="h-[17.5rem] md:h-[22.5rem] w-auto drop-shadow-2xl" />
-              <div className="flex items-center space-x-2">
-                <LuGraduationCap className="w-7 h-7 text-[#FFD700]" />
-                <span className="text-[#FFD700] font-bold tracking-wider uppercase text-sm">Excellence &amp; Character · Since 2016</span>
+              <div className="relative">
+                {/* Back card */}
+                <img src={KAW('Students life/Gallery/UNIFORMS/WhatsApp Image 2026-04-17 at 7.21.18 PM (1).jpeg')} alt="SAKGHS Kawaala students" loading="eager"
+                  className="absolute -top-6 -right-8 w-56 h-72 object-cover rounded-3xl border-2 border-white shadow-2xl rotate-6 opacity-80" />
+                {/* Front card */}
+                <img src={KAW('Students life/Gallery/UNIFORMS/WhatsApp Image 2026-04-17 at 7.21.17 PM.jpeg')} alt="SAKGHS Kawaala student" loading="eager"
+                  className="relative w-72 h-96 object-cover rounded-3xl border-4 border-white shadow-2xl -rotate-2" />
+                {/* Logo badge */}
+                <div className="absolute -bottom-12 -left-16 h-72 w-72 rounded-full bg-white shadow-2xl border-4 border-[#FFD700] flex items-center justify-center p-6">
+                  <img src="/images/Gombe High logo.png" alt="SAKGHS Logo" className="h-full w-full object-contain" />
+                </div>
+              </div>
+              <div className="mt-4 text-center">
+                <span className="text-[#FFD700] font-bold tracking-wider uppercase text-sm">Light the Lamp of Wisdom · Since 2016</span>
               </div>
             </motion.div>
           </div>
@@ -459,23 +441,40 @@ const SAKGHSKawaala: React.FC = () => {
       </section>
 
       {/* ══════════════════════
-          STATS
+          AFFILIATIONS / LOGOS (REPLACING STATS)
          ══════════════════════ */}
-      <section
-        className="py-9 bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center overflow-hidden"
-      >
-        <div
-          className="w-full"
-          style={{
-            backgroundImage: 'url(/SAKGHS_AFR.jpg)',
-            backgroundRepeat: 'repeat-x',
-            backgroundPosition: 'center center',
-            backgroundSize: '720px 119px',
-            height: '119px',
-          }}
-          role="img"
-          aria-label="SAKGHS Banner"
-        />
+      <section className="relative py-16 overflow-hidden bg-gray-50 border-y border-gray-100">
+        <div className="absolute inset-0">
+          <img src={KAW('Students life/Gallery/CLASSES/IMG_2113.JPG')} alt="" className="w-full h-full object-cover grayscale opacity-[0.12]" loading="lazy" />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-50/95 via-transparent to-gray-50/95" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+            {[
+              { src: '/images/scooby-logo.png', alt: 'Scooby' },
+              { src: '/images/Flag_of_Buganda.svg', alt: 'Buganda Kingdom' },
+              { src: '/images/MoES1.png', alt: 'MoES' },
+              { src: '/images/IEAC.png', alt: 'IEAC' },
+              { src: '/images/UNEB.png', alt: 'UNEB' },
+            ].map((logo, i) => (
+              <motion.div
+                key={logo.src}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="relative w-44 h-24 flex items-center justify-center transition-all duration-300 hover:scale-110"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="relative max-h-20 max-w-full object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.06)]"
+                  loading="lazy"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ══════════════════════
@@ -585,7 +584,10 @@ const SAKGHSKawaala: React.FC = () => {
             <motion.div initial={{ opacity:0, x:50 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} className="relative">
               <div className="relative">
                 <img src="/IMG_1952.JPG" alt="Students studying"
-                  className="rounded-2xl shadow-2xl w-full object-cover" style={{ maxHeight: 460 }} loading="lazy" />
+                  className="rounded-2xl shadow-2xl w-full object-cover object-top" style={{ maxHeight: 460 }} loading="lazy" />
+                <img src={KAW('Students life/Gallery/UNIFORMS/WhatsApp Image 2026-04-17 at 7.21.20 PM.jpeg')} alt="Student on campus"
+                  className="hidden md:block absolute -top-8 -right-6 w-40 h-52 object-cover rounded-2xl border-4 border-white shadow-2xl rotate-3" loading="lazy" />
+
               </div>
             </motion.div>
           </div>
@@ -600,9 +602,6 @@ const SAKGHSKawaala: React.FC = () => {
           <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} className="text-center mb-14">
             <SectionLabel text="Partners & Affiliates" />
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Proudly Associated With</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Working with government, industry and community to deliver the best for our students.
-            </p>
           </motion.div>
           <div className="relative overflow-hidden">
             <div className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none bg-gradient-to-r from-white to-transparent" />
@@ -638,9 +637,9 @@ const SAKGHSKawaala: React.FC = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {admissionSteps.map((step, i) => (
               <motion.div key={step.title} initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} transition={{ delay: i*0.08 }} viewport={{ once:true }}
-                className="bg-gray-50 rounded-none p-6 border border-gray-100 hover:border-[#FFD700] hover:shadow-lg transition-all duration-300">
+                className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-[#FFD700] hover:shadow-lg transition-all duration-300">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-none bg-[#FFF6CC] flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-[#FFF6CC] flex items-center justify-center">
                     <step.icon className="w-6 h-6 text-[#800E13]" />
                   </div>
                   <span className="text-sm font-semibold text-[#800E13]">Step {i+1}</span>
@@ -659,6 +658,127 @@ const SAKGHSKawaala: React.FC = () => {
               <LuBookOpen className="w-5 h-5" />
               Download Requirements PDF
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════
+          STUDENT LIFE STRIP
+         ══════════════════════ */}
+      <section id="clubs-societies" className="py-20 bg-gray-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} className="text-center mb-12">
+            <SectionLabel text="Student Life" />
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Beyond the <span className="text-[#800E13]">Classroom</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Sports, leadership, faith and friendship — life at Kawaala is as vibrant outside the classroom as within it.
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {[
+              { src: KAW('Students life/Gallery/CO-CIRRICULAR ACTIVITIES/IMG_2410.JPG'), label: 'Sports',        span: 'row-span-2' },
+              { src: KAW('Students life/Gallery/DANCESPORT/_MG_6845.JPG'),               label: 'Dancesport',    span: '' },
+              { src: KAW('Students life/Gallery/TOURS/_MG_7409.JPG'),                    label: 'Tours',         span: 'row-span-2' },
+              { src: KAW('Students life/Gallery/RELIGION/_MG_5492.JPG'),                 label: 'Faith',         span: '' },
+              { src: KAW('Students life/Gallery/CO-CIRRICULAR ACTIVITIES/IMG_3496.JPG'), label: 'Team Spirit',   span: '' },
+              { src: KAW('Students life/Gallery/DANCESPORT/_MG_6923.JPG'),               label: 'Camaraderie',   span: '' },
+            ].map(({ src, label, span }, i) => (
+              <motion.a key={src} href="/gallery" initial={{ opacity:0, scale:0.95 }} whileInView={{ opacity:1, scale:1 }} transition={{ delay: i*0.06 }} viewport={{ once:true }}
+                className={`group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ${span} ${span ? 'min-h-[320px]' : 'min-h-[150px]'}`}>
+                <img src={src} alt={label} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-4 text-white font-semibold text-sm tracking-wide">{label}</span>
+              </motion.a>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <a href="/gallery" className="inline-flex items-center gap-2 bg-[#800E13] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#5C0A0F] transition shadow-lg">
+              Explore the Full Gallery <LuArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════
+          NEWS & ARTICLES
+         ══════════════════════ */}
+      <section id="articles" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <SectionLabel text="Updates" />
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              News and <span className="text-[#800E13]">featured Articles</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Stay up to date with the latest developments, student highlights, and academic milestones from our Kawaala campus.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Kawaala Campus Welcomes New Students for 2026 Intake",
+                excerpt: "We are thrilled to welcome our new cohort of learners to our vibrant campus in Kasubi, along Hoima Road.",
+                date: "Jan 5, 2026",
+                category: "Campus Life",
+                image: KAW('Students life/Gallery/CLASSES/IMG_9893.JPG'),
+              },
+              {
+                title: "Outstanding Performance in UNEB Examinations",
+                excerpt: "Our students continue to shine, registering excellent results in both UCE and UACE national examinations.",
+                date: "Dec 18, 2025",
+                category: "Academics",
+                image: KAW('Students life/Gallery/CLASSES/IMG_9876.JPG'),
+              },
+              {
+                title: "Empowering Future Leaders Through Practical Skills",
+                excerpt: "Hands-on training in Technical Drawing, Agriculture, and Entrepreneurship equips students with key life competencies.",
+                date: "Nov 22, 2025",
+                category: "Vocational",
+                image: KAW('Students life/Gallery/TOURS/_MG_7489.JPG'),
+              },
+            ].map((art, idx) => (
+              <motion.article
+                key={art.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col"
+              >
+                <div className="h-48 relative overflow-hidden bg-gray-100">
+                  <img src={art.image} alt={art.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  <span className="absolute top-4 left-4 bg-[#800E13] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    {art.category}
+                  </span>
+                </div>
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-2 text-gray-400 text-xs font-medium mb-3">
+                      <LuCalendar className="w-4 h-4 text-[#FFD700]" />
+                      <span>{art.date}</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 hover:text-[#800E13] transition-colors line-clamp-2">
+                      {art.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3">
+                      {art.excerpt}
+                    </p>
+                  </div>
+                  <button className="inline-flex items-center gap-2 text-[#800E13] font-bold text-sm hover:text-[#5C0A0F] group self-start">
+                    Read Full Article
+                    <LuArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </motion.article>
+            ))}
           </div>
         </div>
       </section>
@@ -686,7 +806,7 @@ const SAKGHSKawaala: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="md:col-span-2">
-              <img src="/images/Gombe High logo.png" alt="SAKGHS" className="h-20 w-auto mb-4 grayscale brightness-150" loading="lazy" />
+              <img src="/images/Gombe High logo.png" alt="SAKGHS" className="h-40 w-auto mb-4" loading="lazy" />
               <h3 className="text-base font-bold text-white mb-2">St. Andrew Kaggwa Gombe High School</h3>
               <p className="text-gray-400 mb-6 text-sm leading-relaxed">
                 Established in 2016, St. Andrew Kaggwa Gombe High School Kawaala is a mixed day and boarding
@@ -694,9 +814,15 @@ const SAKGHSKawaala: React.FC = () => {
                 guided by the motto: "Light the Lamp of Wisdom."
               </p>
               <div className="flex items-center gap-3">
-                {([FaFacebook, FaXTwitter, FaInstagram, FaLinkedin, FaWhatsapp] as React.ElementType[]).map((Icon, i) => (
-                  <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FFD700]/20 hover:text-[#FFD700] transition-colors text-gray-300">
-                    <Icon className="w-4 h-4" />
+                {[
+                  { icon: FaFacebook, href: "https://www.facebook.com/share/1KtMX5AvjT/", label: "Facebook" },
+                  { icon: FaXTwitter, href: "https://x.com/gombehighschool", label: "X" },
+                  { icon: FaInstagram, href: "https://www.instagram.com/st.andrewkaggwagombehighschool?igsh=MW56MjRyMGtrdHRncQ==", label: "Instagram" },
+                  { icon: FaYoutube, href: "https://www.youtube.com/@watchgombess", label: "YouTube" },
+                  { icon: FaTiktok, href: "https://www.tiktok.com/@gombehighschoolkawaala?_r=1&_t=ZS-97XNihHM2hL", label: "TikTok" }
+                ].map((social) => (
+                  <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FFD700]/20 hover:text-[#FFD700] transition-colors text-gray-300" aria-label={social.label}>
+                    <social.icon className="w-4 h-4" />
                   </a>
                 ))}
               </div>

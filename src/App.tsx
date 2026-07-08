@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
+import { FaWhatsapp } from 'react-icons/fa';
 import './App.css';
 
 const SAKGHSKawaala     = lazy(() => import('./pages/SAKGHSKawaala'));
@@ -41,6 +42,17 @@ function App() {
           <Route path="/*"                  element={<SAKGHSKawaala />} />
         </Routes>
       </Suspense>
+
+      {/* Floating WhatsApp button */}
+      <a
+        href="https://wa.me/256708700002"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-[999] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:bg-[#20BA56] hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center"
+        aria-label="Chat on WhatsApp"
+      >
+        <FaWhatsapp className="w-8 h-8" />
+      </a>
     </BrowserRouter>
   );
 }

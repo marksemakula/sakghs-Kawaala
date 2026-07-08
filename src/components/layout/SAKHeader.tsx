@@ -49,7 +49,7 @@ const navItems: NavItem[] = [
   {
     label: 'Student Life',
     items: [
-      { label: 'Articles', href: '#articles' },
+      { label: 'Updates', href: '#articles' },
       { label: 'Images', href: '#images' },
       { label: 'Student Clubs and Societies', href: '#clubs-societies' },
     ],
@@ -100,7 +100,7 @@ const SAKHeader: React.FC = () => {
                 St. Andrew Kaggwa Gombe HS
               </div>
               <div className="text-[10px] lg:text-xs font-semibold tracking-widest uppercase" style={{ color: PRIMARY }}>
-                Excellence &amp; Character
+                Light the Lamp of Wisdom
               </div>
             </div>
           </Link>

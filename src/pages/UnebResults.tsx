@@ -5,7 +5,7 @@ import {
   LuBookOpen, LuMail, LuAward, LuCalendar,
   LuMapPin, LuPhone,
 } from 'react-icons/lu';
-import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp, FaYoutube, FaTiktok } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 /* ─────────────────────────────
@@ -50,8 +50,8 @@ const navItems = [
   {
     label: 'Student Life',
     items: [
-      { label: 'Articles',                    href: '/#articles' },
-      { label: 'Images',                      href: '/#gallery' },
+      { label: 'Updates',                    href: '/#articles' },
+      { label: 'Images',                      href: '/gallery' },
       { label: 'Student Clubs and Societies', href: '/#clubs-societies' },
     ],
   },
@@ -103,7 +103,7 @@ const PageHeader: React.FC = () => {
               </div>
               <div className={`text-xs font-semibold tracking-wider transition-colors ${scrolled ? 'text-[#800E13]' : 'text-[#FFD700]'}`}
                 style={{ color: scrolled ? SECONDARY : PRIMARY }}>
-                EXCELLENCE &amp; CHARACTER · SINCE 2016
+                LIGHT THE LAMP OF WISDOM · SINCE 2016
               </div>
             </div>
           </a>
@@ -237,6 +237,8 @@ const UnebResults: React.FC = () => {
 
       {/* ── Hero banner ── */}
       <div className="relative pt-24 pb-16 bg-gradient-to-r from-[#800E13] to-[#5C0A0F] overflow-hidden">
+        <img src="/GOMBE HIGH SCHOOL - KAWAALA/Students life/Gallery/CLASSES/IMG_2113.JPG" alt="" className="absolute inset-0 w-full h-full object-cover opacity-20" loading="eager" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#800E13]/80 to-[#5C0A0F]/80" />
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FFD700] to-transparent" />
         <div className="absolute inset-0 opacity-10"
           style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, #FFD700 0%, transparent 50%), radial-gradient(circle at 80% 20%, #FFD700 0%, transparent 40%)' }} />
@@ -333,7 +335,7 @@ const UnebResults: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="md:col-span-2">
-              <img src="/images/Gombe High logo.png" alt="SAKGHS" className="h-20 w-auto mb-4 grayscale brightness-150" loading="lazy" />
+              <img src="/images/Gombe High logo.png" alt="SAKGHS" className="h-40 w-auto mb-4" loading="lazy" />
               <h3 className="text-base font-bold text-white mb-2">St. Andrew Kaggwa Gombe High School</h3>
               <p className="text-gray-400 mb-6 text-sm leading-relaxed">
                 Established in 2016, St. Andrew Kaggwa Gombe High School Kawaala is a mixed day and boarding
@@ -341,9 +343,15 @@ const UnebResults: React.FC = () => {
                 guided by the motto: "Light the Lamp of Wisdom."
               </p>
               <div className="flex items-center gap-3">
-                {([FaFacebook, FaXTwitter, FaInstagram, FaLinkedin, FaWhatsapp] as React.ElementType[]).map((Icon, i) => (
-                  <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FFD700]/20 hover:text-[#FFD700] transition-colors text-gray-300">
-                    <Icon className="w-4 h-4" />
+                {[
+                  { icon: FaFacebook, href: "https://www.facebook.com/share/1KtMX5AvjT/", label: "Facebook" },
+                  { icon: FaXTwitter, href: "https://x.com/gombehighschool", label: "X" },
+                  { icon: FaInstagram, href: "https://www.instagram.com/st.andrewkaggwagombehighschool?igsh=MW56MjRyMGtrdHRncQ==", label: "Instagram" },
+                  { icon: FaYoutube, href: "https://www.youtube.com/@watchgombess", label: "YouTube" },
+                  { icon: FaTiktok, href: "https://www.tiktok.com/@gombehighschoolkawaala?_r=1&_t=ZS-97XNihHM2hL", label: "TikTok" }
+                ].map((social) => (
+                  <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FFD700]/20 hover:text-[#FFD700] transition-colors text-gray-300" aria-label={social.label}>
+                    <social.icon className="w-4 h-4" />
                   </a>
                 ))}
               </div>
