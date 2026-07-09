@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
+import CampusSelector from './components/CampusSelector';
 import { FaWhatsapp } from 'react-icons/fa';
 import './App.css';
 
@@ -31,6 +32,7 @@ const LoadingFallback: React.FC = () => (
 function App() {
   return (
     <BrowserRouter>
+      <CampusSelector />
       <ScrollToTop />
       <Suspense fallback={<LoadingFallback />}>
         <Routes>
