@@ -51,7 +51,7 @@ const CampusSelector: React.FC = () => {
           <img
             src="/images/Gombe High logo.png"
             alt="St. Andrew Kaggwa Gombe High School"
-            className="h-20 w-20 object-contain"
+            className="h-40 w-40 object-contain"
           />
           <h2 id="campus-selector-title" className="text-white text-lg font-bold text-center leading-snug">
             St. Andrew Kaggwa Gombe High School
