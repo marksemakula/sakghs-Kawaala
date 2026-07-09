@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-/** Which campus THIS deployment serves */
-const THIS_CAMPUS: 'kawaala' | 'bujuuko' = 'kawaala';
-
 const CAMPUS_URLS = {
-  kawaala: 'https://sakghs-kawaala.vercel.app/',
-  bujuuko: 'https://sakghs-bujuuko.vercel.app/',
+  kawaala: 'https://kawaala.gombehighschool.ac.ug/',
+  bujuuko: 'https://bujuuko.gombehighschool.ac.ug/',
 } as const;
 
 /** Only prompt visitors arriving on the shared school domain
@@ -32,11 +29,13 @@ const CampusSelector: React.FC = () => {
   if (!open) return null;
 
   const choose = (campus: 'kawaala' | 'bujuuko') => {
-    if (campus === THIS_CAMPUS) {
+    const target = new URL(CAMPUS_URLS[campus]);
+    if (window.location.hostname === target.hostname) {
+      // Already on this campus's site (e.g. previewing) — just close
       document.body.style.overflow = '';
       setOpen(false);
     } else {
-      window.location.href = CAMPUS_URLS[campus];
+      window.location.href = target.href;
     }
   };
 
