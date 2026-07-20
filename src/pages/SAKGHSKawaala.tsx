@@ -847,7 +847,7 @@ const SAKGHSKawaala: React.FC = () => {
             </div>
           </div>
           <div className="pt-4 pb-2 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">© {new Date().getFullYear()} St. Andrew Kaggwa Gombe High School. All rights reserved.</p>
+            <p className="text-gray-400 text-sm">© {new Date().getFullYear()} St. Andrew Kaggwa Gombe High School. All rights reserved. A member of <a href="https://ges.ac.ug" target="_blank" rel="noopener" className="hover:underline">Gombe Education Service</a>.</p>
             <div className="flex items-center gap-6">
               <div className="flex gap-4 text-sm">
                 <a href="#" className="text-gray-400 hover:text-[#FFD700] transition-colors">Privacy Policy</a>

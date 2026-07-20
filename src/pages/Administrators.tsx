@@ -362,7 +362,7 @@ const Administrators: React.FC = () => {
             </div>
           </div>
           <div className="border-t border-white/10 pt-6 text-center text-xs text-gray-500 font-semibold uppercase tracking-wider">
-            &copy; {new Date().getFullYear()} St. Andrew Kaggwa Gombe High School Kawaala. All Rights Reserved.
+            &copy; {new Date().getFullYear()} St. Andrew Kaggwa Gombe High School Kawaala. All Rights Reserved. A member of <a href="https://ges.ac.ug" target="_blank" rel="noopener" className="hover:underline">Gombe Education Service</a>.
           </div>
         </div>
       </footer>
