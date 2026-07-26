@@ -328,7 +328,7 @@ const SAKGHSKawaala: React.FC = () => {
     Object.fromEntries(programs.map((_, i) => [i, 0]))
   );
   const [formData, setFormData] = useState({
-    name: '', phone: '', email: '', program: '', documents: null as File | null,
+    learnerName: '', name: '', phone: '', email: '', program: '', documents: null as File | null,
   });
 
   /* Cycle program card images */
@@ -356,11 +356,20 @@ const SAKGHSKawaala: React.FC = () => {
 
   const filtered = activeTab === 'all' ? programs : programs.filter((p) => p.category === activeTab);
 
+  const MAX_ATTACHMENT_BYTES = 50 * 1024; // 50KB email attachment limit
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     if (name === 'documents') {
-      const f = (e.target as HTMLInputElement).files;
-      setFormData((p) => ({ ...p, documents: f?.[0] ?? null }));
+      const input = e.target as HTMLInputElement;
+      const file = input.files?.[0] ?? null;
+      if (file && file.size > MAX_ATTACHMENT_BYTES) {
+        alert('That file is too large to email. Please attach a document smaller than 50KB.');
+        input.value = '';
+        setFormData((p) => ({ ...p, documents: null }));
+        return;
+      }
+      setFormData((p) => ({ ...p, documents: file }));
     } else {
       setFormData((p) => ({ ...p, [name]: value }));
     }
@@ -368,8 +377,8 @@ const SAKGHSKawaala: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`Application received!\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nProgram: ${formData.program}\n\nWe will contact you within 2 working days.`);
-    setFormData({ name: '', phone: '', email: '', program: '', documents: null });
+    alert(`Application received!\n\nLearner's Name: ${formData.learnerName}\nGuardian's/Sponsor's Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nProgram: ${formData.program}\n\nWe will contact you within 2 working days.`);
+    setFormData({ learnerName: '', name: '', phone: '', email: '', program: '', documents: null });
     setIsApplyOpen(false);
   };
 
@@ -886,8 +895,13 @@ const SAKGHSKawaala: React.FC = () => {
               </div>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                  <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="Your full name"
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Learner's Full Name</label>
+                  <input type="text" name="learnerName" value={formData.learnerName} onChange={handleChange} required placeholder="Learner's full name"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#800E13] focus:border-transparent outline-none transition text-sm" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Guardian's / Sponsor's Full Name</label>
+                  <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="Guardian's / Sponsor's full name"
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#800E13] focus:border-transparent outline-none transition text-sm" />
                 </div>
                 <div>
@@ -912,7 +926,7 @@ const SAKGHSKawaala: React.FC = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Academic Documents</label>
                   <input type="file" name="documents" onChange={handleChange} accept=".pdf,.doc,.docx,.jpg,.png"
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-xl outline-none transition text-sm" />
-                  <p className="text-xs text-gray-400 mt-1">PLE / UCE results slip (PDF or image, max 4 MB)</p>
+                  <p className="text-xs text-gray-400 mt-1">PLE / UCE results slip (PDF or image, max 50KB)</p>
                 </div>
                 <div className="flex gap-3 pt-2">
                   <button type="submit" className="flex-1 bg-[#800E13] text-white py-3 rounded-xl font-semibold hover:bg-[#5C0A0F] transition text-sm">Submit Application</button>
