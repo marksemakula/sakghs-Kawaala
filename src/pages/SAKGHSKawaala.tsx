@@ -330,6 +330,8 @@ const SAKGHSKawaala: React.FC = () => {
   const [formData, setFormData] = useState({
     learnerName: '', name: '', phone: '', email: '', program: '', documents: null as File | null,
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   /* Cycle program card images */
   useEffect(() => {
@@ -375,11 +377,61 @@ const SAKGHSKawaala: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const fileToBase64 = (file: File): Promise<string> =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`Application received!\n\nLearner's Name: ${formData.learnerName}\nGuardian's/Sponsor's Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nProgram: ${formData.program}\n\nWe will contact you within 2 working days.`);
-    setFormData({ learnerName: '', name: '', phone: '', email: '', program: '', documents: null });
-    setIsApplyOpen(false);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    const payload: Record<string, string> = {
+      campus: 'Kawaala',
+      learnerName: formData.learnerName,
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+      program: formData.program,
+    };
+
+    try {
+      if (formData.documents) {
+        payload.documentName = formData.documents.name;
+        payload.documentData = await fileToBase64(formData.documents);
+      }
+
+      const response = await fetch('/api/submit-application', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+      if (!result.success) throw new Error(result.error || 'Submission failed');
+
+      setSubmitStatus('success');
+      setFormData({ learnerName: '', name: '', phone: '', email: '', program: '', documents: null });
+      setTimeout(() => {
+        setIsApplyOpen(false);
+        setSubmitStatus('idle');
+      }, 2500);
+    } catch (error) {
+      console.error('Application submission error:', error);
+      // The online form can fail independently of the applicant (e.g. a
+      // temporary issue with the backend) - fall back to a pre-filled email
+      // so the application is never lost.
+      const mailBody = `Learner's Name: ${formData.learnerName}\nGuardian's/Sponsor's Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nProgram: ${formData.program}`;
+      const mailtoLink = `mailto:info@ges.ac.ug,info@gombehighschool.ac.ug?subject=${encodeURIComponent("Apply Now Submission - " + formData.learnerName)}&body=${encodeURIComponent(mailBody)}`;
+      window.location.href = mailtoLink;
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -891,8 +943,18 @@ const SAKGHSKawaala: React.FC = () => {
                   <h2 className="text-2xl font-bold text-gray-900">Apply Now</h2>
                   <p className="text-sm text-gray-500 mt-1">St. Andrew Kaggwa Gombe HS – Kawaala</p>
                 </div>
-                <button onClick={() => setIsApplyOpen(false)} className="text-gray-400 hover:text-gray-700 text-2xl font-light leading-none">×</button>
+                <button onClick={() => { setIsApplyOpen(false); setSubmitStatus('idle'); }} className="text-gray-400 hover:text-gray-700 text-2xl font-light leading-none">×</button>
               </div>
+              {submitStatus === 'success' && (
+                <div className="mb-4 rounded-xl bg-green-50 border border-green-200 text-green-700 text-sm px-4 py-3">
+                  Application received! We will contact you within 2 working days.
+                </div>
+              )}
+              {submitStatus === 'error' && (
+                <div className="mb-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm px-4 py-3">
+                  Our online form is having trouble right now. We've opened an email with your details pre-filled — please hit send so your application isn't lost.
+                </div>
+              )}
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Learner's Full Name</label>
@@ -929,8 +991,10 @@ const SAKGHSKawaala: React.FC = () => {
                   <p className="text-xs text-gray-400 mt-1">PLE / UCE results slip (PDF or image, max 50KB)</p>
                 </div>
                 <div className="flex gap-3 pt-2">
-                  <button type="submit" className="flex-1 bg-[#800E13] text-white py-3 rounded-xl font-semibold hover:bg-[#5C0A0F] transition text-sm">Submit Application</button>
-                  <button type="button" onClick={() => setIsApplyOpen(false)} className="flex-1 border border-gray-300 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-50 transition text-sm">Cancel</button>
+                  <button type="submit" disabled={isSubmitting} className="flex-1 bg-[#800E13] text-white py-3 rounded-xl font-semibold hover:bg-[#5C0A0F] transition text-sm disabled:opacity-50">
+                    {isSubmitting ? 'Submitting…' : 'Submit Application'}
+                  </button>
+                  <button type="button" onClick={() => { setIsApplyOpen(false); setSubmitStatus('idle'); }} className="flex-1 border border-gray-300 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-50 transition text-sm">Cancel</button>
                 </div>
               </form>
             </motion.div>
