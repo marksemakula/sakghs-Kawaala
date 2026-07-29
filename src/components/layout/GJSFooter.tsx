@@ -37,28 +37,28 @@ const GJSFooter = () => {
             <div className="flex space-x-3">
               <motion.a
                 whileHover={{ scale: 1.1 }}
-                href="#"
+                href="#" onClick={(e) => e.preventDefault()}
                 className="text-gray-300 hover:text-[#FFD700] transition-colors duration-300"
               >
                 <FaFacebook size={18} />
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.1 }}
-                href="#"
+                href="#" onClick={(e) => e.preventDefault()}
                 className="text-gray-300 hover:text-[#FFD700] transition-colors duration-300"
               >
                 <FaTwitter size={18} />
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.1 }}
-                href="#"
+                href="#" onClick={(e) => e.preventDefault()}
                 className="text-gray-300 hover:text-[#FFD700] transition-colors duration-300"
               >
                 <FaInstagram size={18} />
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.1 }}
-                href="#"
+                href="#" onClick={(e) => e.preventDefault()}
                 className="text-gray-300 hover:text-[#FFD700] transition-colors duration-300"
               >
                 <FaLinkedin size={18} />
